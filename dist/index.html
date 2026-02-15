@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Microsite comemorativo de 6 meses — Thalita & Bryan. 04/03/2026.">
+  <meta name="theme-color" content="#e8a0bf">
+
+  <title>Thalita & Bryan — 6 Meses 🤍</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+  <!-- ===== SPLASH / WELCOME SCREEN ===== -->
+  <div class="splash" id="splash" role="dialog" aria-modal="true" aria-label="Tela de boas-vindas">
+    <!-- Floating hearts background -->
+    <div class="splash__hearts" aria-hidden="true" id="splash-hearts"></div>
+
+    <div class="splash__content">
+      <div class="splash__icon" aria-hidden="true">🤍</div>
+      <h1 class="splash__title">Thalita & Bryan</h1>
+      <p class="splash__subtitle">Eu fiz isso pra gente.</p>
+      <p class="splash__subtitle">Cada detalhe aqui tem um pedacinho nosso.</p>
+      <p class="splash__subtitle">Espero que tu goste. 🤍</p>
+      <button class="splash__enter" id="splash-enter" autofocus>Abrir <i class="fa-solid fa-heart"></i></button>
+      <p class="splash__hint">ativa o som <i class="fa-solid fa-wand-magic-sparkles"></i></p>
+    </div>
+  </div>
+
+  <!-- ===== SITE CONTENT (hidden until splash dismissed) ===== -->
+  <div class="site-wrapper" id="site-wrapper">
+    <!-- Versão textual alternativa para leitores de tela -->
+    <div class="sr-only" role="complementary" aria-label="Resumo acessível">
+      Microsite comemorativo de 6 meses de relacionamento de Thalita e Bryan.
+      Data de início: 04 de setembro de 2025. Data da comemoração: 04 de março de 2026.
+      O site contém mensagens românticas, galeria de fotos, player de música e contagem regressiva.
+    </div>
+
+    <!-- Theme Toggle -->
+    <!-- Theme Toggle -->
+    <button class="theme-toggle glass" id="theme-toggle" aria-label="Alternar tema claro/escuro"
+      title="Alternar tema (dia/noite)">
+      <span id="theme-icon"><i class="fa-solid fa-moon"></i></span>
+    </button>
+
+    <!-- Decorative SVG elements -->
+    <svg class="decor decor-heart" style="top:10%;left:5%;" viewBox="0 0 24 24" fill="var(--clr-heart)"
+      aria-hidden="true">
+      <path
+        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+    </svg>
+    <div class="decor decor-bubble" style="top:20%;right:8%;width:80px;height:80px;animation-delay:-2s;"
+      aria-hidden="true"></div>
+    <svg class="decor decor-heart" style="bottom:30%;right:3%;animation-delay:-3s;" viewBox="0 0 24 24"
+      fill="var(--clr-primary-soft)" aria-hidden="true">
+      <path
+        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+    </svg>
+    <div class="decor decor-bubble" style="top:60%;left:3%;width:50px;height:50px;animation-delay:-4s;"
+      aria-hidden="true"></div>
+    <svg class="decor decor-heart" style="top:75%;right:12%;width:40px;height:40px;animation-delay:-1s;"
+      viewBox="0 0 24 24" fill="var(--clr-accent)" aria-hidden="true">
+      <path
+        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+    </svg>
+
+    <!-- ===== HEADER / HERO ===== -->
+    <header class="hero" role="banner">
+      <h1 class="hero__date" aria-label="04 de março de 2026">04 / 03 / 2026</h1>
+      <p class="hero__subtitle">
+        6 meses juntos — Thalita <span class="hero__heart" aria-hidden="true"><i class="fa-solid fa-heart"></i></span>
+        Bryan
+      </p>
+    </header>
+
+    <main>
+      <!-- ===== TYPEWRITER ===== -->
+      <section class="typewriter-section fade-in" aria-label="Mensagens especiais">
+        <div class="typewriter-box glass">
+          <p class="typewriter-text" id="typewriter" role="status" aria-live="polite">
+            <span id="typewriter-content"></span><span class="cursor" aria-hidden="true"></span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===== COUNTDOWN ===== -->
+      <section class="countdown-section fade-in" aria-label="Contagem regressiva">
+        <h2 class="countdown-title" id="countdown-title">Contagem Regressiva</h2>
+        <div class="countdown-grid" id="countdown" role="timer" aria-labelledby="countdown-title">
+          <div class="countdown-item glass"><span class="number" id="cd-days">--</span><span class="label">Dias</span>
+          </div>
+          <div class="countdown-item glass"><span class="number" id="cd-hours">--</span><span class="label">Horas</span>
+          </div>
+          <div class="countdown-item glass"><span class="number" id="cd-mins">--</span><span class="label">Min</span>
+          </div>
+          <div class="countdown-item glass"><span class="number" id="cd-secs">--</span><span class="label">Seg</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== ENHANCEMENT: LIVE TOGETHER COUNTER ===== -->
+      <section class="together-section fade-in" aria-label="Tempo juntos">
+        <span class="together-pulse" aria-hidden="true"><i class="fa-solid fa-heart"></i></span>
+        <p class="together-label">Estamos juntos há:</p>
+        <div class="together-grid" role="timer" aria-label="Contador de tempo juntos">
+          <div class="together-item glass"><span class="t-number" id="tj-days">--</span><span
+              class="t-label">Dias</span></div>
+          <div class="together-item glass"><span class="t-number" id="tj-hours">--</span><span
+              class="t-label">Horas</span></div>
+          <div class="together-item glass"><span class="t-number" id="tj-mins">--</span><span class="t-label">Min</span>
+          </div>
+          <div class="together-item glass"><span class="t-number" id="tj-secs">--</span><span class="t-label">Seg</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== ENHANCEMENT: O QUE EU AMO EM VOCÊ ===== -->
+      <section class="love-section fade-in" aria-label="O que eu amo em você">
+        <h2 class="section-title">O Que Eu Amo Em Você 🤍</h2>
+        <div class="love-grid" id="love-grid" role="list">
+          <div class="love-card glass" role="listitem" tabindex="0">
+            <span class="love-card__icon" aria-hidden="true"><i class="fa-regular fa-face-smile"></i></span>
+            <span class="love-card__text">Seu sorriso verdadeiro</span>
+          </div>
+          <div class="love-card glass" role="listitem" tabindex="0">
+            <span class="love-card__icon" aria-hidden="true"><i class="fa-regular fa-face-angry"></i></span>
+            <span class="love-card__text">Seu jeito quando fica brava por 3 minutos</span>
+          </div>
+          <div class="love-card glass" role="listitem" tabindex="0">
+            <span class="love-card__icon" aria-hidden="true"><i class="fa-solid fa-hand-holding-heart"></i></span>
+            <span class="love-card__text">Como você segura minha mão</span>
+          </div>
+          <div class="love-card glass" role="listitem" tabindex="0">
+            <span class="love-card__icon" aria-hidden="true"><i class="fa-regular fa-heart"></i></span>
+            <span class="love-card__text">A forma que fala meu nome</span>
+          </div>
+          <div class="love-card glass" role="listitem" tabindex="0">
+            <span class="love-card__icon" aria-hidden="true"><i class="fa-solid fa-person-shelter"></i></span>
+            <span class="love-card__text">Como você me acalma</span>
+          </div>
+          <div class="love-card glass" role="listitem" tabindex="0">
+            <span class="love-card__icon" aria-hidden="true"><i class="fa-regular fa-face-grin-wink"></i></span>
+            <span class="love-card__text">Como você me provoca e ri depois</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== GALLERY ===== -->
+      <section class="gallery-section fade-in" aria-label="Galeria de fotos" id="gallery-section">
+        <h2 class="section-title">Nossos Momentos 📸</h2>
+        <div class="gallery-grid" role="list">
+          <div class="gallery-card" role="listitem" tabindex="0" data-index="0" aria-label="Abrir foto 1">
+            <img src="assets/photo1.jpg" alt="07/02/2026" loading="lazy">
+            <div class="overlay" aria-hidden="true">07/02/2026 🤍</div>
+          </div>
+          <div class="gallery-card" role="listitem" tabindex="0" data-index="1" aria-label="Abrir foto 2">
+            <img src="assets/photo2.jpg" alt="28/01/2026" loading="lazy">
+            <div class="overlay" aria-hidden="true">28/01/2026 🤍</div>
+          </div>
+          <div class="gallery-card" role="listitem" tabindex="0" data-index="2" aria-label="Abrir foto 3">
+            <img src="assets/photo3.jpg" alt="20/01/2026" loading="lazy">
+            <div class="overlay" aria-hidden="true">20/01/2026 🤍</div>
+          </div>
+          <div class="gallery-card" role="listitem" tabindex="0" data-index="3" aria-label="Abrir foto 4">
+            <img src="assets/photo4.jpg" alt="29/12/2025" loading="lazy">
+            <div class="overlay" aria-hidden="true">29/12/2025 🤍</div>
+          </div>
+          <div class="gallery-card" role="listitem" tabindex="0" data-index="4" aria-label="Abrir foto 5">
+            <img src="assets/photo5.jpg" alt="01/12/2025" loading="lazy">
+            <div class="overlay" aria-hidden="true">01/12/2025 🤍</div>
+          </div>
+          <div class="gallery-card" role="listitem" tabindex="0" data-index="5" aria-label="Abrir foto 6">
+            <img src="assets/photo6.jpg" alt="09/09/2025" loading="lazy">
+            <div class="overlay" aria-hidden="true">09/09/2025 🤍</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lightbox -->
+      <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualizador de fotos"
+        tabindex="-1">
+        <button class="lightbox__close" aria-label="Fechar" id="lb-close">✕</button>
+        <button class="lightbox__prev" aria-label="Foto anterior" id="lb-prev">‹</button>
+        <button class="lightbox__next" aria-label="Próxima foto" id="lb-next">›</button>
+        <img class="lightbox__img" id="lb-img" src="" alt="">
+        <div class="lightbox__caption" id="lb-caption"
+          style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:var(--clr-text-muted);font-family:var(--font-display);font-style:italic;font-size:1rem;background:var(--clr-glass);backdrop-filter:blur(10px);padding:8px 20px;border-radius:var(--radius-sm);border:1px solid var(--clr-glass-border);">
+        </div>
+      </div>
+
+      <!-- ===== AUDIO PLAYER ===== -->
+      <section class="audio-section fade-in" aria-label="Player de música">
+        <div class="audio-player glass" role="region" aria-label="Controles de áudio">
+          <button class="audio-player__btn" id="audio-btn" aria-label="Reproduzir música">▶</button>
+          <div class="audio-player__info">
+            <div class="audio-player__title" id="audio-title">Nossa Música 🎵</div>
+            <input type="range" class="audio-player__progress" id="audio-progress" min="0" max="100" value="0"
+              aria-label="Progresso da música">
+          </div>
+          <span class="audio-player__time" id="audio-time" aria-live="off">0:00</span>
+          <input type="range" class="audio-player__volume" id="audio-volume" min="0" max="1" step="0.05" value="0.5"
+            aria-label="Volume">
+        </div>
+        <audio id="song" preload="metadata">
+          <source src="assets/song.mp3" type="audio/mpeg">
+        </audio>
+      </section>
+
+      <section class="celebrate-section fade-in" aria-label="Comemorar">
+        <button class="btn-celebrate" id="btn-celebrate" aria-label="Disparar confetti e comemorar">
+          <i class="fa-solid fa-champagne-glasses"></i> Comemorar!
+        </button>
+      </section>
+
+      <!-- ===== ENHANCEMENT: CARTA ESCONDIDA ===== -->
+      <section class="letter-section fade-in" aria-label="Carta especial">
+        <button class="letter-trigger" id="btn-letter" aria-haspopup="dialog"
+          aria-label="Abrir carta especial somente para Thalita">
+          <i class="fa-solid fa-lock"></i> Somente para Thalita
+        </button>
+      </section>
+
+      <!-- ===== GUESTBOOK (localStorage) ===== -->
+      <section class="guestbook-section fade-in" aria-label="Mural de recados">
+        <h2 class="section-title">Mural de Recados 🤍</h2>
+        <form class="guestbook-form" id="guestbook-form" aria-label="Enviar recado">
+          <input type="text" id="gb-input" placeholder="Deixe um recado especial..." maxlength="280"
+            aria-label="Seu recado" required>
+          <button type="submit">Enviar</button>
+        </form>
+        <div class="guestbook-messages" role="list" aria-label="Recados enviados"></div>
+      </section>
+
+      <!-- ===== SHARE & QR ===== -->
+      <section class="share-section fade-in">
+        <h2 class="section-title">Compartilhar 📱</h2>
+        <div class="share-btns">
+          <!-- Buttons if needed -->
+        </div>
+        <div id="qr-container"></div>
+      </section>
+
+    </main>
+
+    <!-- ===== ENHANCEMENT: LETTER MODAL ===== -->
+    <div class="letter-modal" role="dialog" aria-modal="true" aria-label="Carta de amor para Thalita" tabindex="-1">
+      <div class="letter-modal__content">
+        <button class="letter-modal__close" aria-label="Fechar carta">✕</button>
+        <h3 class="letter-modal__title">Pra você, Thalita 🤍</h3>
+        <div class="letter-modal__body">
+          <p>Eu nem sei direito como escrever isso sem parecer brega, mas dane-se. Eu quis tentar.</p>
+          <p>Antes de você eu achava que já tava de boa, sabe? Tipo, tava vivendo. Mas aí você apareceu e eu entendi que
+            viver de verdade é outra coisa. É rir do nada, é sentir falta sem motivo, é querer contar tudo pra mesma
+            pessoa.</p>
+          <p>Eu gosto de como a gente é. Sem forçar nada. Sem precisar ser perfeito. Só a gente, do nosso jeito.</p>
+          <p>Obrigado por me aguentar, por me escolher, por ficar. Tu é minha pessoa favorita nesse mundo inteiro. 🤍
+          </p>
+          <p>Pra sempre teu, Bryan 🤍</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ENHANCEMENT: CINEMA MODE OVERLAY ===== -->
+    <div class="cinema-overlay" aria-hidden="true">
+      <div class="cinema-overlay__names">Thalita & Bryan</div>
+      <div class="cinema-overlay__date">04/09/2025 → ∞</div>
+      <div class="cinema-overlay__heart">🤍</div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer role="contentinfo">
+      <p>Feito com <span class="heart-icon" aria-label="amor"><i class="fa-solid fa-heart"></i></span> pra Thalita &
+        Bryan</p>
+      <p style="margin-top:8px;">Desde 04/09/2025 — Pra sempre <i class="fa-solid fa-infinity"></i></p>
+    </footer>
+
+  </div><!-- /.site-wrapper -->
+
+  <!-- Keyboard Shortcuts Hint (desktop) -->
+  <aside class="shortcuts-hint glass" aria-label="Atalhos de teclado">
+    <kbd>C</kbd> Confetti &nbsp; <kbd>P</kbd> Play/Pause &nbsp; <kbd>G</kbd> Galeria
+  </aside>
+
+  <!-- Starfield Canvas (mobile-optimized background) -->
+  <!-- Generated by mobile.js -->
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="js/mobile.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/splash.js" defer></script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(reg => console.log('SW Registered:', reg.scope))
+          .catch(err => console.error('SW Failed:', err));
+      });
+    }
+  </script>
+</body>
+
+</html>
